@@ -9,7 +9,7 @@ interface GetTimeDto {
   sec: string,
 }
 export function getTime(value: Date): GetTimeDto {
-  const checkDay = new Date('2024, 8, 10');
+  const checkDay = Date.parse('2024-08-09T19:00:00Z');
   const diff = dayjs(checkDay).diff(dayjs(value));
 
   const year = Math.floor(diff / 31104000000).toString().padStart(2, '0');// time diff in years
