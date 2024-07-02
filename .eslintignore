@@ -1,0 +1,5 @@
+build/*
+public/*
+src/vite-env.d.ts
+src/vite-env-override.d.ts
+vite.config.ts

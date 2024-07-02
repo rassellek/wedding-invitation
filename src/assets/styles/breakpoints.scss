@@ -1,0 +1,58 @@
+@use "sass:map";
+
+$media-breakpoints: (
+  xs: 320px,
+  xs-max: 479px,
+  sm: 480px,
+  sm-max: 759px,
+  md: 760px,
+  md-max: 991px,
+  lg: 992px,
+  lg-max: 1365px,
+  xl: 1366px,
+  xl-max: 1599px,
+  xxl: 1600px,
+);
+
+@function get-breakpoint($name, $breakpoints: $media-breakpoints) {
+  $value: map.get($breakpoints, $name);
+
+  @return if($value != 0, $value, null);
+}
+
+@mixin media-breakpoint-max($name) {
+  $max: get-breakpoint($name);
+
+  @if $max {
+    @media all and (max-width: $max) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-min($name) {
+  $min: get-breakpoint($name);
+
+  @if $min {
+    @media all and (min-width: $min) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+@mixin media-breakpoint($name-min, $name-max) {
+  $min: get-breakpoint($name-min);
+  $max: get-breakpoint($name-max);
+
+  @if $min and $max {
+    @media all and (min-width: $min) and (max-width: $max) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}

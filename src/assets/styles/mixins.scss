@@ -1,0 +1,106 @@
+@use "sass:color";
+@import "variables";
+
+@mixin scroll-components {
+  &::-webkit-scrollbar-track {
+    border-radius: 16px;
+    background-color: $color-input-focus;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border: solid 4px $color-input-focus;
+    border-radius: 8px;
+    background-color: $color-separator-line;
+  }
+}
+
+@mixin scroll-vertical() {
+  &::-webkit-scrollbar {
+    width: 16px;
+  }
+
+  @include scroll-components;
+}
+
+@mixin scroll-horizontal() {
+  &::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  @include scroll-components;
+}
+
+@mixin scroll-vertical-lg() {
+  &::-webkit-scrollbar-track {
+    border-radius: 24px;
+    background-color: $color-input-focus;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border: solid 8px $color-input-focus;
+    border-radius: 16px;
+    background-color: $color-separator-line;
+  }
+
+  &::-webkit-scrollbar {
+    width: 24px;
+  }
+}
+
+@mixin scroll-absolute() {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  @include scroll-components;
+}
+
+@mixin set-user-select-none() {
+  -webkit-touch-callout: none; /* iOS Safari */ /* Chrome/Safari/Opera */
+  user-select: none;
+}
+
+@keyframes animation-loader {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@mixin shimmer {
+  & {
+    position: relative;
+    overflow: hidden;
+    border-radius: $border-radius;
+    background: color.adjust($color-text-black-5, $lightness: 20%);
+  }
+
+  &::before {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    animation: shimmer 1.5s infinite;
+    background:
+      linear-gradient(
+        90deg,
+        rgba($color-white, 0%) 0%,
+        rgba($color-white, 50%) 50%,
+        rgba($color-white, 0%) 100%
+      );
+    content: "";
+  }
+
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%);
+    }
+
+    100% {
+      transform: translateX(100%);
+    }
+  }
+}

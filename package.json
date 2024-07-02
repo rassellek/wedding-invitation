@@ -1,0 +1,77 @@
+{
+  "name": "wedding-invitation",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "vite",
+    "build": "tsc && vite build",
+    "lint": "eslint wedding-invitation --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "dependencies": {
+    "@material-design-icons/svg": "^0.14.2",
+    "@reduxjs/toolkit": "^1.9.2",
+    "@types/jest": "^27.5.2",
+    "@types/node": "^16.18.11",
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
+    "classnames": "^2.3.2",
+    "dayjs": "^1.11.10",
+    "jwt-decode": "^3.1.2",
+    "lodash.isequal": "^4.5.0",
+    "plural-ru": "^2.0.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.48.2",
+    "react-image-crop": "^10.1.8",
+    "react-redux": "^8.0.5",
+    "react-router-dom": "^6.8.0",
+    "universal-cookie": "^4.0.4",
+    "vite-tsconfig-paths": "^4.2.1"
+  },
+  "devDependencies": {
+    "@types/loader-utils": "^2.0.6",
+    "@types/lodash.isequal": "^4.5.8",
+    "@types/react": "^18.2.15",
+    "@types/react-dom": "^18.2.7",
+    "@types/uuid": "^9.0.7",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "@vitejs/plugin-react-swc": "^3.3.2",
+    "eslint": "^8.57.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-config-react-app": "^7.0.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.3",
+    "loader-utils": "^3.2.1",
+    "sass": "^1.57.1",
+    "stylelint": "^14.16.1",
+    "stylelint-config-css-modules": "^4.1.0",
+    "stylelint-config-idiomatic-order": "^9.0.0",
+    "stylelint-config-standard-scss": "^6.1.0",
+    "typescript": "^5.0.2",
+    "vite": "^4.4.5",
+    "vite-plugin-eslint": "^1.8.1",
+    "vite-plugin-svgr": "^4.1.0"
+  }
+}

@@ -1,0 +1,234 @@
+@use "sass:math";
+@use "sass:color";
+
+/**
+ * Font
+ */
+$font-size-base: 16px;
+$font-family-base: montserrat, arial, sans-serif;
+
+/**
+ * Line height
+ */
+$line-height-base: 1.5rem;
+
+/**
+ * Colors
+ */
+
+// Black, white
+$color-white: #fff;
+$color-black: #000;
+
+// Primary
+$color-primary-main: rgb(29 102 255);
+$color-primary-second: color.mix($color-primary-main, white, 12%);
+$color-primary-border: color.mix($color-primary-main, white, 40%);
+$color-primary-hover: color.mix(black, $color-primary-main, 12%);
+$color-primary-pressed: color.mix(black, $color-primary-main, 16%);
+$color-primary-clicked: color.mix(black, $color-primary-main, 20%);
+$color-primary-focus: color.mix(white, $color-primary-main, 4%);
+$color-primary-disabled: rgb(29 102 255 / 60%);
+
+// Ghost
+$color-ghost-main: rgb(231 238 251);
+$color-ghost-second: color.mix($color-ghost-main, white, 12%);
+$color-ghost-border: color.mix($color-ghost-main, white, 60%);
+$color-ghost-hover: color.mix(black, $color-ghost-main, 6%);
+$color-ghost-pressed: color.mix(black, $color-ghost-main, 8%);
+$color-ghost-clicked: color.mix(black, $color-ghost-main, 12%);
+$color-ghost-focus: color.mix(white, $color-ghost-main, 4%);
+$color-ghost-disabled: rgb(231 238 251 / 60%);
+
+// Accent
+$color-accent-main: rgb(245 98 24);
+$color-accent-second: color.mix($color-accent-main, white, 12%);
+$color-accent-border: color.mix($color-accent-main, white, 40%);
+$color-accent-hover: color.mix(black, $color-accent-main, 12%);
+$color-accent-pressed: color.mix(black, $color-accent-main, 16%);
+$color-accent-clicked: color.mix(black, $color-accent-main, 20%);
+$color-accent-focus: color.mix(white, $color-accent-main, 4%);
+$color-accent-disabled: rgb(245 98 24 / 60%);
+
+// Danger
+$color-danger-main: rgb(186 26 26);
+$color-danger-second: color.mix($color-danger-main, white, 12%);
+$color-danger-border: color.mix($color-danger-main, white, 40%);
+$color-danger-hover: color.mix(black, $color-danger-main, 12%);
+$color-danger-pressed: color.mix(black, $color-danger-main, 16%);
+$color-danger-clicked: color.mix(black, $color-danger-main, 20%);
+$color-danger-focus: color.mix(white, $color-danger-main, 4%);
+$color-danger-disabled: rgb(186 26 26 / 60%);
+
+// Attention
+$color-attention-main: rgb(255 157 46);
+$color-attention-second: color.mix($color-attention-main, white, 12%);
+$color-attention-border: color.mix($color-attention-main, white, 40%);
+$color-attention-hover: color.mix(black, $color-attention-main, 12%);
+$color-attention-pressed: color.mix(black, $color-attention-main, 16%);
+$color-attention-clicked: color.mix(black, $color-attention-main, 20%);
+$color-attention-focus: color.mix(white, $color-attention-main, 4%);
+$color-attention-disabled: rgb(255 157 46 / 60%);
+
+// Success
+$color-success-main: rgb(45 172 58);
+$color-success-second: color.mix($color-success-main, white, 12%);
+$color-success-border: color.mix($color-success-main, white, 40%);
+$color-success-hover: color.mix(black, $color-success-main, 12%);
+$color-success-pressed: color.mix(black, $color-success-main, 16%);
+$color-success-clicked: color.mix(black, $color-success-main, 20%);
+$color-success-focus: color.mix(white, $color-success-main, 4%);
+$color-success-disabled: rgb(45 172 58 / 60%);
+
+// Text
+$color-text-black-main: #202968;
+$color-text-black-secondary: #434553;
+$color-text-black-3: #6f7d92;
+$color-text-black-4: #768fb4;
+$color-text-black-5: #98a5be;
+$color-text-black-6: #9ea3ab;
+$color-text-black-7: #e8e8e8;
+$color-text-white-main: #f6f8fc;
+$color-text-white-secondary: color.mix(#1d66ff, #f6f8fc, 2%);
+$color-text-white-3: color.mix(#1d66ff, #f6f8fc, 8%);
+
+// Primary, secondary text
+$color-text-primary: $color-text-black-main;
+$color-text-secondary: $color-text-black-secondary;
+$color-text-tertiary: $color-text-black-5;
+
+// Inputs
+$color-input-default: #f2f4ff;
+$color-input-focus: #fbfbff;
+$color-input-border: #e0e0ff;
+$color-answers-border: #f8f8fd;
+
+// Background
+$color-background-main: #f6f8fc;
+$color-background-gradient: linear-gradient(167deg, $color-background-main 0%, $color-background-main 100%, #fff 100%);
+$color-surface-1: #fcfdff;
+$color-surface-2: #fefeff;
+$color-separator-line: #c5d3e4;
+$color-shadow: $color-ghost-hover;
+$color-shadow-hover: $color-ghost-clicked;
+$color-background-answers: #f3f7fc;
+$color-background-error: linear-gradient(0deg, $color-danger-second, $color-danger-second), $color-white;
+
+// Shadow colors
+$color-shadow: #c6c8ce;
+$color-shadow-hover: $color-shadow;
+$color-shadow-active: #b1b7c8;
+$color-shadow-clicked: $color-shadow;
+$color-shadow-drag: #8a8d92;
+
+// Shadow-light colors
+$color-shadow-light: #e9edf5;
+$color-shadow-light-hover: #e5e9f1;
+$color-shadow-light-active: #e6eaf2;
+$color-shadow-light-clicked: $color-shadow-light;
+$color-shadow-light-drag: #d8dce3;
+
+// Color vars
+$color-map: (
+  primary: (
+    color-main: $color-primary-main,
+    color-second: $color-primary-second,
+    color-border: $color-primary-border,
+    color-hover: $color-primary-hover,
+    color-pressed: $color-primary-pressed,
+    color-clicked: $color-primary-clicked,
+    color-focus: $color-primary-focus,
+    color-disabled: $color-primary-disabled,
+  ),
+  ghost: (
+    color-main: $color-ghost-main,
+    color-second: $color-ghost-second,
+    color-border: $color-ghost-border,
+    color-hover: $color-ghost-hover,
+    color-pressed: $color-ghost-pressed,
+    color-clicked: $color-ghost-clicked,
+    color-focus: $color-ghost-focus,
+    color-disabled: $color-ghost-disabled,
+  ),
+  accent: (
+    color-main: $color-accent-main,
+    color-second: $color-accent-second,
+    color-border: $color-accent-border,
+    color-hover: $color-accent-hover,
+    color-pressed: $color-accent-pressed,
+    color-clicked: $color-accent-clicked,
+    color-focus: $color-accent-focus,
+    color-disabled: $color-accent-disabled,
+  ),
+  danger: (
+    color-main: $color-danger-main,
+    color-second: $color-danger-second,
+    color-border: $color-danger-border,
+    color-hover: $color-danger-hover,
+    color-pressed: $color-danger-pressed,
+    color-clicked: $color-danger-clicked,
+    color-focus: $color-danger-focus,
+    color-disabled: $color-danger-disabled,
+  ),
+  attention: (
+    color-main: $color-attention-main,
+    color-second: $color-attention-second,
+    color-border: $color-attention-border,
+    color-hover: $color-attention-hover,
+    color-pressed: $color-attention-pressed,
+    color-clicked: $color-attention-clicked,
+    color-focus: $color-attention-focus,
+    color-disabled: $color-attention-disabled,
+  ),
+  success: (
+    color-main: $color-success-main,
+    color-second: $color-success-second,
+    color-border: $color-success-border,
+    color-hover: $color-success-hover,
+    color-pressed: $color-success-pressed,
+    color-clicked: $color-success-clicked,
+    color-focus: $color-success-focus,
+    color-disabled: $color-success-disabled,
+  ),
+);
+
+@function --color-disabled($color) {
+  @return rgba($color, 0.6);
+}
+
+/**
+ * Shadows
+ */
+// With colored card background
+$shadow: 2px 4px 10px $color-shadow;
+$shadow-hover: 4px 8px 20px $color-shadow-hover;
+$shadow-active: 4px 8px 20px $color-shadow-active;
+$shadow-clicked: 4px 8px 12px $color-shadow-clicked;
+$shadow-drag: 0 0 16px $color-shadow-drag;
+
+// With white card background
+$shadow-light: 2px 4px 10px $color-shadow-light;
+$shadow-light-hover: 4px 8px 20px $color-shadow-light-hover;
+$shadow-light-active: 4px 8px 20px $color-shadow-light-active;
+$shadow-light-clicked: 4px 8px 12px $color-shadow-light-clicked;
+$shadow-light-drag: 0 0 16px $color-shadow-light-drag;
+
+// Header
+$shadow-header: 0 4px 8px #0b0b0b0a;
+$shadow-sidebar: 4px 0 8px #0b0b0b05;
+$shadow-sidebar-right: -4px 0 8px #0b0b0b05;
+
+/**
+ * Others
+ */
+$border-radius: 12px;
+$border-radius-sm: 8px;
+$transition-function: ease-out;
+$transition-duration: 0.1s;
+$transition: $transition-duration $transition-function;
+$header-height: 80px;
+$z-index-invisible: -1;
+$z-index-low: 10;
+$z-index-middle: 50;
+$z-index-max: 100;
+$padding-bottom-free-space: 100px;
